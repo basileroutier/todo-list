@@ -4,6 +4,10 @@ import Greet from './Components/Greet';
 import Welcome from './Components/Welcome';
 import Message from './Components/Message';
 import TodoList from './Components/TodoList';
+import Count from './Components/Count';
+import Todo from './Components/Todo';
+import EventHandler from './Components/EventHandler';
+import UserGreeting from './Components/UserGreeting';
 
 function App() {
   return (
@@ -12,7 +16,12 @@ function App() {
             <p>This is a child paragraph</p>
         </Greet>
         <Welcome name="Jackie" heroName="Titouan"></Welcome> */}
-        <TodoList  />
+        {/* <Greet name = "Titouan"></Greet>
+        <Count></Count>
+        <TodoList  /> */}
+        {/* <EventHandler/> */}
+        <UserGreeting></UserGreeting>
+        <Todo></Todo>
         
     </div>    
   );

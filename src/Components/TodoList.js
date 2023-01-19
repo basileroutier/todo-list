@@ -11,10 +11,14 @@ class TodoList extends Component {
     }
 
     addElement(val) {
+        if(val === "") return;
+        
         this.setState({
             elements: [...this.state.elements, {id: this.state.elements.length, value: val}]
         })
+        document.getElementById("todoInput").value = "";
     }
+    
 
     render() {
         return (
