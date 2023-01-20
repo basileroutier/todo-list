@@ -1,27 +1,37 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-import Greet from './Components/Greet';
-import Welcome from './Components/Welcome';
-import Message from './Components/Message';
-import TodoList from './Components/TodoList';
-import Count from './Components/Count';
-import Todo from './Components/Todo';
-import EventHandler from './Components/EventHandler';
-import UserGreeting from './Components/UserGreeting';
+import FruitForm from './Components/FruitForm';
+import Fruits from './Components/Fruits';
 
 function App() {
+
+  const [fruits, setFruits] = useState([
+    {id: '1', name: 'Apple'},
+    {id: '2', name: 'Banana'},
+    {id: '3', name: 'Orange'},
+  ])
+
+
+  const handleDelete = (id) => {
+    const newFruits = fruits.filter(fruit => fruit.id !== id);
+    setFruits(newFruits);
+  }
+
+  const handleAdd = (newFruit) => {
+    setFruits([...fruits, newFruit]);
+  }
+
   return (
     <div className="App">
-        {/* <Greet name="Ian">
-            <p>This is a child paragraph</p>
-        </Greet>
-        <Welcome name="Jackie" heroName="Titouan"></Welcome> */}
-        {/* <Greet name = "Titouan"></Greet>
-        <Count></Count>
-        <TodoList  /> */}
-        {/* <EventHandler/> */}
-        <UserGreeting></UserGreeting>
-        <Todo></Todo>
+      <h1>My Fruits</h1>
+
+      <ul>
+        {fruits.map(fruit => (
+          <Fruits key={fruit.id} fruitInfo={fruit} onClick={() => handleDelete(fruit.id)} />
+        ))}
+      </ul>
+
+      <FruitForm handleAdd={handleAdd}/>
         
     </div>    
   );
